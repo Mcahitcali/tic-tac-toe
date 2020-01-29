@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <h1 v-text="message"></h1>
+
+      <div class="main">
+        <div class="left-side">
+          <button
+            v-if="!winner"
+            v-on:click="reset()"
+            class="btn reset"
+          >
+            Clear
+          </button>
+        </div>
+
+        <div class="game-board">
+          <table cellspacing="0">
+            <tr v-for="(row, rowIndex) in game" :key="rowIndex">
+              <td
+                v-for="(column, columnIndex) in row"
+                :key="columnIndex"
+                v-on:click="click(rowIndex,columnIndex)"
+              >
+                <transition name="fade">
+                  <span v-if="game[rowIndex][columnIndex]">
+                    {{game[rowIndex][columnIndex]}}
+                  </span>
+                </transition>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>      
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

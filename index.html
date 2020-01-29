@@ -10,19 +10,20 @@
       href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </head>
   <body>
     <div id="app">
-        <h1 v-text="message"></h1>
+    <h1 >{{message}}</h1>
 
       <div class="main">
         <div class="left-side">
           <button
-            v-if="!winner"
+            v-if="winner"
             v-on:click="reset()"
             class="btn reset"
           >
